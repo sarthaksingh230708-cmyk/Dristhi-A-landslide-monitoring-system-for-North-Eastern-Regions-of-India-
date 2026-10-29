@@ -1,0 +1,182 @@
+@import "tailwindcss";
+
+/* Dynamic Device-Adaptive Font Scaling & Accessibility */
+:root {
+  --base-font-size: 15px;
+  --font-scale-factor: 1;
+}
+
+html {
+  font-size: var(--base-font-size);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Device-specific automatic adaptive scaling */
+@media (max-width: 639px) {
+  :root {
+    --base-font-size: 14px;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  :root {
+    --base-font-size: 15px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1535px) {
+  :root {
+    --base-font-size: 16px;
+  }
+}
+
+@media (min-width: 1536px) {
+  :root {
+    --base-font-size: 17px;
+  }
+}
+
+/* User override font size modes */
+html[data-font-size="compact"] {
+  --base-font-size: 13.5px;
+}
+
+html[data-font-size="normal"] {
+  --base-font-size: 15.5px;
+}
+
+html[data-font-size="large"] {
+  --base-font-size: 17.5px;
+}
+
+html[data-font-size="xlarge"] {
+  --base-font-size: 19.5px;
+}
+
+/* Leaflet container and styling enhancements */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  background: #020617;
+  font-family: inherit;
+}
+
+.leaflet-control-zoom {
+  border: 1px solid rgba(51, 65, 85, 0.8) !important;
+  border-radius: 10px !important;
+  overflow: hidden;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5) !important;
+}
+
+.leaflet-control-zoom a {
+  background-color: #0f172a !important;
+  color: #f1f5f9 !important;
+  border-bottom: 1px solid #1e293b !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background-color: #1e293b !important;
+  color: #ffffff !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: #0f172a !important;
+  color: #f8fafc !important;
+  border: 1px solid #334155 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6) !important;
+}
+
+.leaflet-popup-tip {
+  background: #0f172a !important;
+  border: 1px solid #334155 !important;
+}
+
+/* Publication-grade PDF & Print Stylesheet */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 14mm 12mm 14mm 12mm;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 11pt !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Hide app navigation, fixed floating buttons, map popups, and non-printable elements */
+  header,
+  nav,
+  footer,
+  #btn-floating-view-map,
+  .no-print,
+  button:not(.allow-print) {
+    display: none !important;
+  }
+
+  /* Expand the printable architecture document */
+  .printable-doc {
+    position: static !important;
+    inset: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .printable-doc * {
+    color: #0f172a !important;
+  }
+
+  .printable-doc .bg-slate-900,
+  .printable-doc .bg-slate-800,
+  .printable-doc .bg-slate-950 {
+    background: #f8fafc !important;
+    border: 1px solid #cbd5e1 !important;
+  }
+
+  .printable-doc .text-white,
+  .printable-doc .text-slate-100,
+  .printable-doc .text-slate-200 {
+    color: #0f172a !important;
+  }
+
+  .printable-doc table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 12px 0 !important;
+    break-inside: avoid;
+  }
+
+  .printable-doc th,
+  .printable-doc td {
+    border: 1px solid #cbd5e1 !important;
+    padding: 6px 8px !important;
+    font-size: 9.5pt !important;
+  }
+
+  .printable-doc th {
+    background: #f1f5f9 !important;
+    font-weight: bold !important;
+  }
+
+  .print-page-break {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  .print-avoid-break {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}

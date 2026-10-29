@@ -1,0 +1,6 @@
+{
+  "name": "DRISHTI - Landslide Early Warning System",
+  "description": "DRISHTI: Multi-hazard early warning landslide monitoring and QGIS vulnerability mapping system for North Eastern Region (NER) India with multilingual voice alerts, satellite and soil moisture telemetry, road connectivity status, and citizen incident reporting.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
